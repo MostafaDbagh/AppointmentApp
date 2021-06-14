@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const router = require('./routes/route')
 const path = require('path')
-const Port = 4050 || process.env.PORT;
+const Port =  process.env.PORT ||4050;
 
 const db = require('./database/mongodb')
 
