@@ -40,4 +40,13 @@ getAppointments = (req,res)=>{
     })
 
 }
-module.exports ={createAppointment,getAppointments}
+deleteAppointments = (req,res)=>{
+    
+   DpSchema.findByIdAndRemove({ _id: req.params.id },function (err,data) {
+       if (err) res.json(err)
+       else res.json('Employee deleted successfully')
+   })
+
+
+}
+module.exports ={createAppointment,getAppointments,deleteAppointments}

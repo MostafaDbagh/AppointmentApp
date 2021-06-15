@@ -52,8 +52,8 @@ export const AddUser = () => {
      })} 
  name="Property type" placeholder="Enter Property Type" required>
        <option>Choose Item </option>
-       <option>Dubai Land </option>
-          <option>Dubai Properties</option>
+       <option>DP Land </option>
+          <option>DP Units</option>
           <option>Meraas Land</option>
           <option>Meraas Units</option>
           
