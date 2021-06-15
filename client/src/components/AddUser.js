@@ -54,8 +54,8 @@ export const AddUser = () => {
        <option>Choose Item </option>
        <option>Dubai Land </option>
           <option>Dubai Properties</option>
-          <option>Merras Land</option>
-          <option>MErras Units</option>
+          <option>Meraas Land</option>
+          <option>Meraas Units</option>
           
  </Input>
       </FormGroup>
