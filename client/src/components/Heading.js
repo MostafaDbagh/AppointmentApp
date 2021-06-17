@@ -19,14 +19,19 @@ export const Heading = () => {
 setAppointments(mydata);
   }
   const deleteAppointment = async(id )=>{
-    console.log('here we go')
-    console.log(id)
+
    await apis.deleteAppointment(id)
     alert('we delete the Appointment')
     window.location.reload()
-
-  
- 
+  }
+ const filterTime = time=>{
+if(time.split(':')[0]>12){
+  return`${+time.split(':')[0] -12 +":"+time.split(':')[1]} Pm`
+}else if(+time.split(':')[0]===12){
+ return `${+time.split(':')[0] +":"+time.split(':')[1]} Pm`
+}else{
+  return`${time} Am`
+}
   }
   return (
     <>
@@ -57,13 +62,14 @@ setAppointments(mydata);
               <section key={Math.random()} style={{height:'50px',display:'flex',justifyContent:'space-around'}}>
           <p style={{width:"150px",textAlign:'center',marginLeft:'140px'}} >   <strong>{user.propertytype}</strong></p> &nbsp;&nbsp;&nbsp;
              <p style={{width:"150px",textAlign:'center',}}  >  <strong>{user.propertyno}</strong> </p>&nbsp;&nbsp;&nbsp;
-             <p style={{width:"150px",textAlign:'center',}}>  <strong>{+user.time.split(':')[0]>12 ?`${+user.time.split(':')[0] -12 +":"+user.time.split(':')[1]} Pm`:`${user.time} Am` }</strong> </p>&nbsp;&nbsp;&nbsp;
-             <p style={{width:"150px",textAlign:'center',}} ><strong>{user.date}</strong></p>              <div className="mx-auto">
+             <p style={{width:"150px",textAlign:'center',}}><strong>{filterTime(user.time)} </strong></p>&nbsp;&nbsp;&nbsp;
+             <p style={{width:"150px",textAlign:'center',}} ><strong>{user.date}</strong></p> <div className="mx-auto">
 
-                {/* <Link to={`/edit/${user.id}`} color="warning" className="btn btn-warning mr-5">Edit</Link>*/}
+                 <Link to={`/edit/${user._id}`} color="warning" className="btn btn-warning mr-5">Edit</Link>
                 <Button onClick={() => deleteAppointment(user._id)} color="danger">Delete</Button> 
               </div>
-           
+              
+            
               </section>
          ))} 
 

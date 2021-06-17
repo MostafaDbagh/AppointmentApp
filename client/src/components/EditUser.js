@@ -9,59 +9,83 @@ import {
   Button
 } from "reactstrap";
 import Paragraph from '../components/Paragraph'
-
+import apis  from '../api/api';
 export const EditUser = (props) => {
-  const { editUser, users } = useContext(GlobalContext);
-  const [selectedUser, setSelectedUser] = useState({
-    id: '',
-    type: '',
-    propno:'',
+  const currentUserId = props.match.params.id;
+  const history = useHistory();
+  const [data, setData] = useState({
+    id: currentUserId,
+    propertytype: '',
+    propertyno:'',
     time:'',
-    date:''
+    date:'',
     
   })
-  const history = useHistory();
-  const currentUserId = props.match.params.id;
-
-  useEffect(() => {
-    const userId = currentUserId;
-    const selectedUser = users.find(user => user.id === userId);
-    setSelectedUser(selectedUser);
-  }, [currentUserId, users])
 
   const onChange = (e) => {
-    setSelectedUser({ ...selectedUser, [e.target.name]: e.target.value })
+    setData({ ...data, [e.target.name]: e.target.value })
   }
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(selectedUser)
-    editUser(selectedUser);
+  const onSubmit = async (e) => {
+  e.preventDefault();
+  const  {propertytype,propertyno,time,date}=data
+  const payload ={propertytype,propertyno,time,date} ;
+  await apis.updateAppointment(data['id'],payload)
     history.push("/")
+    alert('update appointment')
+
   }
 
   return (
     <>
     <Paragraph ></Paragraph>
 
-    <Form onSubmit={onSubmit}>
-      <FormGroup>
-        <Label>Property Type</Label>
-        <Input type="text"  onChange={onChange} name="type" placeholder="Enter Updated " ></Input>
+    <Form onSubmit={onSubmit} >
+      <div className="d-flex">
+
+      <FormGroup className="col-6" >
+        <Label className="text-muted mb-2" >Property Type :</Label>
+        <Input type="select"
+ name="propertytype" placeholder="Enter Property Type" onChange={(e)=>onChange(e)} required>
+       <option>Choose Item </option>
+       <option>DP Land </option>
+          <option>DP Units</option>
+          <option>Meraas Land</option>
+          <option>Meraas Units</option>
+          
+ </Input>
       </FormGroup>
-      <FormGroup>
-        <Label>Property NO.</Label>
-        <Input type="text"  onChange={onChange} name="propno" placeholder="Enter user" ></Input>
+  
+      <FormGroup className="col-md-6">
+        <Label className="text-muted mb-2">Prop No.:</Label>
+        <Input type="text" 
+      
+         name="propertyno" placeholder="Enter Property No." 
+         onChange={(e)=>onChange(e)}
+         required></Input>
       </FormGroup>
+      </div>
       <FormGroup>
-        <Label>Time</Label>
-        <Input type="time"  onChange={onChange} name="time" placeholder="Enter user" ></Input>
+        <Label className="text-muted mb-2">Time:</Label>
+        <Input
+          type="time"
+          name="time"
+          id="exampleDatetime"
+          placeholder="datetime placeholder"
+          onChange={(e)=>onChange(e)}
+          required
+        />
       </FormGroup>
+  
       <FormGroup>
-        <Label>Date</Label>
-        <Input type="date" className="mb-2"  onChange={onChange} name="date" placeholder="Enter user" ></Input>
+        <Label className="text-muted mb-2">Date:</Label>
+        <Input type="date" className="mb-2"  
+     
+        name="date" placeholder="Enter Date Of Appointment" 
+        onChange={(e)=>onChange(e)}
+        required></Input>
       </FormGroup>
-      <Button type="submit">Edit Name</Button>
+      <Button type="submit" >Submit</Button>
       <Link to="/" className="btn btn-danger ml-2">Cancel</Link>
     </Form>
     </>

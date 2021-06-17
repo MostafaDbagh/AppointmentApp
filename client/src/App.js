@@ -26,3 +26,5 @@ const App = () => {
 }
 
 export default App
+
+//  +user.time.split(':')[0]>=12 ?`${+user.time.split(':')[0] -12 +":"+user.time.split(':')[1]} Pm`:`${user.time} Am` }

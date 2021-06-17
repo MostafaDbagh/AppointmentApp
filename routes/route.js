@@ -3,6 +3,7 @@ const Dpcontroller = require('../controllers/dp-controller')
 
 routes.post('/addAppointment',Dpcontroller.createAppointment)
 routes.get('/getAppointments',Dpcontroller.getAppointments)
+routes.put('/updateAppointment/:id',Dpcontroller.updateAppointment)
 routes.delete('/deleteAppointment/:id',Dpcontroller.deleteAppointments)
 
 module.exports = routes;
