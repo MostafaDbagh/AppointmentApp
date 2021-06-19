@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const api = axios.create({
-    // baseURL:'https://dubaipropertiesappointment.herokuapp.com/api'
-      baseURL:"http://localhost:4050/api/"
+     baseURL:'https://dubaipropertiesappointment.herokuapp.com/api'
+     // baseURL:"http://localhost:4050/api/"
 })
 
 const addAppointment = payload => api.post('/addAppointment',payload)
