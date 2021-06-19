@@ -67,22 +67,22 @@ if(time.split(':')[0]>12){
       </Container>
     </Navbar>
         {  Appointments.length > 0 ?
-               <div style={{ maxWidth: "42rem", display:'flex',justifyContent:'space-around',margin:'0 auto 24px auto' }} >
+               <div style={{ maxWidth: "52rem", display:'flex',justifyContent:'space-around',margin:'0 0 24px 0' }} >
 
- <h6 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'26x'}} > Property Type. </h6>
- <h6 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'26x'}} > Property No. </h6>
- <h6 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'26x'}}> Appointment Time  </h6>
- <h6 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'26x'}}> Appointmnt Date </h6>
+ <h5 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'20px'}} > Property Type. </h5>
+ <h5 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'20px'}} > Property No. </h5>
+ <h5 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'20px'}}> Appointment Time.  </h5>
+ <h6 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'20px'}}> Appointmnt Date. </h6>
      </div>
   :<div></div>
  }
 
      {Appointments.map(user => (
-              <section key={Math.random()} style={{height:'50px',display:'flex',justifyContent:'space-around'}}>
-          <p style={{width:"150px",textAlign:'center',marginLeft:'140px'}} >   <strong>{user.propertytype}</strong></p> &nbsp;&nbsp;&nbsp;
-             <p style={{width:"150px",textAlign:'center',}}  >  <strong>{user.propertyno}</strong> </p>&nbsp;&nbsp;&nbsp;
-             <p style={{width:"150px",textAlign:'center',}}><strong>{filterTime(user.time)} </strong></p>&nbsp;&nbsp;&nbsp;
-             <p style={{width:"150px",textAlign:'center',}} ><strong>{user.date.split('-').reverse().join('-')}</strong></p> <div className="mx-auto">
+              <section key={Math.random()} style={{height:'50px',display:'flex',justifyContent:'space-around',maxWidth:'62rem',}}>
+          <p style={{width:"150px",textAlign:'center',marginLeft:'0'}} >   <strong>{user.propertytype}</strong></p> &nbsp;&nbsp;&nbsp;
+             <p style={{width:"150px",textAlign:'center',marginLeft:'32px'}}  >  <strong>{user.propertyno}</strong> </p>&nbsp;&nbsp;&nbsp;
+             <p style={{width:"150px",textAlign:'center',marginLeft:'32px'}}><strong>{filterTime(user.time)} </strong></p>&nbsp;&nbsp;&nbsp;
+             <p style={{width:"150px",textAlign:'center',marginLeft:'78px'}} ><strong>{user.date.split('-').reverse().join('-')}</strong></p> <div className="mx-auto">
 
                  <Link to={`/edit/${user._id}`} color="warning" className="btn btn-warning mr-5">Edit</Link>
                 <Button onClick={() => deleteAppointment(user._id)} color="danger">Delete</Button> 
