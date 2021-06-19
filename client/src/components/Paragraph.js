@@ -1,10 +1,10 @@
 import React from 'react';
-
+import dubai from '../images/1.png'
 const Paragraph = () => {
     return ( 
-<div>
+<div style={{width:'100%',height:'200px',display:'flex',justifyContent:'center',alignItems:'center'}}>
 
-    <h1 className="text-center mb-5 h1 text-secondary">Dubai Holding</h1>
+    <img src={dubai} width="400" height="200" />
 </div>
 
      );

@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (
-    <div style={{ maxWidth: "60rem", margin: "6rem auto" }}>
+    <div style={{ maxWidth: "60rem", margin: "0 auto" }}>
 
       <GlobalProvider>
         <Router>
