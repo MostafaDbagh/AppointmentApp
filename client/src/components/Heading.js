@@ -22,10 +22,7 @@ export const Heading = () => {
      sorted.push(currentitem)
   }
   sorted =sorted.sort((a,b)=>a-b)
-//    mydata.forEach(element => {
-//    let currentitem = +element.time.split(':')[0]+ +element.date.split('-')[1]+ +element.date.split('-')[2];
-//   sorted.push(currentitem);
-//  });
+
 let newArr= [];
 for(let i =0;i<sorted.length;i++){
 for(let j =0;j<mydata.length;j++){
@@ -56,7 +53,7 @@ if(time.split(':')[0]>12){
     <>
     <Navbar color="dark" dark style={{marginBottom:"32px"}}>
       <Container>
-        <NavbarBrand href="/">Dubai Holding</NavbarBrand>
+        <NavbarBrand href="/"></NavbarBrand>
         <Nav>
           <NavItem>
             <Link className="btn btn-primary " style={{marginRight:"10px"}} to="/add">Add Appointment</Link>
@@ -69,10 +66,10 @@ if(time.split(':')[0]>12){
         {  Appointments.length > 0 ?
                <div style={{ maxWidth: "52rem", display:'flex',justifyContent:'space-around',margin:'0 0 24px 0' }} >
 
- <h5 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'20px'}} > Property Type. </h5>
- <h5 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'20px'}} > Property No. </h5>
- <h5 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'20px'}}> Appointment Time.  </h5>
- <h6 style={{letterSpacing:'1px',fontStyle:'italic',fontSize:'20px'}}> Appointmnt Date. </h6>
+ <h5 style={{letterSpacing:'1px',fontSize:'20px'}} > Property Type. </h5>
+ <h5 style={{letterSpacing:'1px',fontSize:'20px'}} > Property No. </h5>
+ <h5 style={{letterSpacing:'1px',fontSize:'20px'}}> Appointment Time.  </h5>
+ <h6 style={{letterSpacing:'1px',fontSize:'20px'}}> Appointmnt Date. </h6>
      </div>
   :<div></div>
  }

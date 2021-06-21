@@ -52,10 +52,10 @@ export const AddUser = () => {
      })} 
  name="Property type" placeholder="Enter Property Type" required>
        <option>Choose Item </option>
-       <option>DP Land </option>
-          <option>DP Units</option>
-          <option>Meraas Land</option>
-          <option>Meraas Units</option>
+       <option>DL</option>
+          <option>DU</option>
+          <option>ML</option>
+          <option>MU</option>
           
  </Input>
       </FormGroup>

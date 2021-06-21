@@ -48,10 +48,10 @@ export const EditUser = (props) => {
         <Input type="select"
  name="propertytype" placeholder="Enter Property Type" onChange={(e)=>onChange(e)} required>
        <option>Choose Item </option>
-       <option>DP Land </option>
-          <option>DP Units</option>
-          <option>Meraas Land</option>
-          <option>Meraas Units</option>
+       <option>DL</option>
+          <option>DU</option>
+          <option>ML</option>
+          <option>MU</option>
           
  </Input>
       </FormGroup>
