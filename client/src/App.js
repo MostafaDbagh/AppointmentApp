@@ -6,6 +6,7 @@ import { EditUser } from "./components/EditUser";
 import { GlobalProvider } from "./context/GlobalState";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import AuthenticateUser from './components/Authenticate';
 
 const App = () => {
   return (
@@ -14,8 +15,8 @@ const App = () => {
       <GlobalProvider>
         <Router>
           <Switch>
-           
-            <Route exact path="/" component={Home} />
+             <Route exact path="/" component={AuthenticateUser}/>
+             <Route exact path="/app" component={Home} /> 
             <Route path="/add" component={AddUser} />
             <Route path="/edit/:id" component={EditUser} />
           </Switch>

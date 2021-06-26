@@ -24,7 +24,7 @@ export const AddUser = () => {
 
   const onSubmit =  async (e) => {
     e.preventDefault();
-   const  {propertytype,propertyno,time,date}=data
+   const  {propertytype,propertyno,time,date}=data;
     const payload ={propertytype,propertyno,time,date} ;
     await apis.addAppointment(payload)
    // addUser(data)

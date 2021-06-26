@@ -1,6 +1,8 @@
 
 const DpSchema = require('../db/appointment-shcema')
-const db = require('../database/mongodb')
+const AuthSchema = require('../db/Authenticate')
+
+
 createAppointment = (req,res)=>{
     const body = req.body
 
@@ -40,6 +42,26 @@ getAppointments = (req,res)=>{
     })
 
 }
+authenticateUser = (req,res)=>{
+    let bool = false;
+   const users = AuthSchema.find({username:''+req.body.username});
+   users.exec(function(err,info){
+try{
+    if(info.length ==0) throw err;
+
+    else (info.length>0) 
+    info[0].password==req.body.password ?  res.json({auth:!bool}) :res.json({auth:bool})
+}
+  catch(err){
+    res.json({auth:bool})
+  }
+  
+    
+  
+    
+    
+    
+})}
 deleteAppointments = (req,res)=>{
     
    DpSchema.findByIdAndRemove({ _id: req.params.id },function (err,data) {
@@ -65,9 +87,7 @@ updateAppointment = async (req, res) => {
                 message: ' appointment not found!',
             })
         }
-        console.log(req.params.id)
-        console.log("here is the body"+req.body)
-        console.log("here is the app"+appointment)
+      
 
         appointment.propertytype = req.body.propertytype
         appointment.propertyno = req.body.propertyno
@@ -91,4 +111,4 @@ updateAppointment = async (req, res) => {
      })
 }
 
-module.exports ={createAppointment,getAppointments,deleteAppointments,updateAppointment}
+module.exports ={createAppointment,getAppointments,deleteAppointments,updateAppointment,authenticateUser}
