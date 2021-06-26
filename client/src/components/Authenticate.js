@@ -44,7 +44,7 @@ const AuthenticateUser =  ()=>{
 </FormGroup>
 <FormGroup className="col-md-6 mb-3">
 <Label className="text-muted mb-2">PassWord:</Label>
-<Input type="text"  name="password" placeholder="Enter PassWord" onChange={onchange} required></Input>
+<Input type="password"  name="password" placeholder="Enter PassWord" onChange={onchange} required></Input>
 </FormGroup>
 <p className="text-danger" ref={Pref} style={{display:'none'}}>UserName Or Password Not Correct Please try Again</p>
 <Button type="submit" className="mt-3">Submit</Button>
