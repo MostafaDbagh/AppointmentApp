@@ -29,7 +29,7 @@ export const AddUser = () => {
     await apis.addAppointment(payload)
    // addUser(data)
 
-    history.push("/");
+    history.push("/app");
   
     alert('we added appointment')
 

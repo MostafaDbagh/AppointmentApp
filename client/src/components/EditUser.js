@@ -31,7 +31,7 @@ export const EditUser = (props) => {
   const  {propertytype,propertyno,time,date}=data
   const payload ={propertytype,propertyno,time,date} ;
   await apis.updateAppointment(data['id'],payload)
-    history.push("/")
+    history.push("/app")
     alert('update appointment')
 
   }
